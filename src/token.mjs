@@ -1,12 +1,4 @@
-import {
-  log,
-  isAlpha,
-  isNumber,
-  isTagSymbol,
-  isTag,
-  parseAttr,
-  next,
-} from './utils.mjs'
+import { isAlpha, isTag, parseAttr, next } from './utils.mjs'
 
 const STATUS = {
   INITIAL: 0,
@@ -17,7 +9,7 @@ const STATUS = {
   TEXT: 5,
 }
 
-function tokenizer(input) {
+export function tokenizer(input) {
   const tokens = []
   const chars = []
   let pos = 0
@@ -99,15 +91,5 @@ function tokenizer(input) {
     }
     pos++
   }
-  console.log(tokens)
+  return tokens
 }
-
-tokenizer(
-  `<div disable class="hello" style="height: 120px; width: 120px;" id="this">
-    我们都有一个家，名字叫中国
-    <img src="https://www.baidu.com" />
-    <p>hello world
-    <span style="color: #fff;">这是span/</span>
-    </p>
-  </div>`,
-)
