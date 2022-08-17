@@ -11,19 +11,21 @@ export function isNumber(char) {
 }
 
 export function isTagSymbol(char) {
-  const symbols = '="\':;/.0123456789#'
+  const symbols = '="\':;/.0123456789#()'
   return isAlpha(char) || symbols.includes(char)
 }
 
 export function isTag(input, pos) {
+  let ch = input[pos++]
+  if (ch !== '<') {
+    return false
+  }
   while (pos < input.length) {
-    let ch = input[++pos]
+    let ch = input[pos++]
     if (ch === '<') {
       return false
     } else if (ch === '>') {
       return true
-    } else if (!isTagSymbol(ch) && ch !== ' ') {
-      return false
     }
   }
 }

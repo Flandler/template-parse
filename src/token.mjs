@@ -1,4 +1,4 @@
-import { isAlpha, isTag, parseAttr, next } from './utils.mjs'
+import { isAlpha, isTag, parseAttr, next, log } from './utils.mjs'
 
 const STATUS = {
   INITIAL: 0,
