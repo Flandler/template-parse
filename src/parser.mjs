@@ -19,6 +19,7 @@ export function parse(tokens) {
           children: [],
         }
         item.children.push(element)
+        // 自闭合标签何能会被解析成start target 在这里要判断一下
         if (!closeSelfTags.includes(token.tag)) {
           stack.push(element)
         }
