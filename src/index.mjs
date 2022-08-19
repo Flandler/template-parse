@@ -1,10 +1,11 @@
-import { parse } from './parser.mjs'
-import { tokenizer } from './token.mjs'
-import { transform } from './transform.mjs'
-import { log } from './utils.mjs'
+import { parse } from '../lib/parser.mjs'
+import { tokenizer } from '../lib/token.mjs'
+import { transform } from '../lib/transform.mjs'
+import { log } from '../lib/utils.mjs'
 
 const html = document.querySelector('body').innerHTML
 const tokens = tokenizer(html)
 const root = parse(tokens)
-transform(root)
+const result = transform(tokens)
+log(result)
 log(root)
